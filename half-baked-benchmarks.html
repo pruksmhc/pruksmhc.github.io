@@ -66,19 +66,20 @@
     
     <ul>
         <li>They're easy to hack.</li>
-        <li>They're usually in multiple choice.</li>
+        <li>They're usually in multiple choice./li>
     </ul>
+    <p>Now, multiple-choice isn't inherently problematic. However, most real-world tasks aren't multiple-choice, and research has shown that models trained in this format on certain types of knowledge don't necessarily know how to apply that knowledge in open-ended, real-world scenarios.  </p>
     
-    <p>With agents, they're either too specified, or does not check for enough.</p>
-    
-    <p>Think of them as being directionally indicative of reasoning ability, but you need to set up your own evaluations.</p>
+    <p>Think of benchmarks as being directionally indicative of reasoning ability, but you need to set up your own evaluations.</p>
     
     <p>For example, if you're working on agents, you need to make sure:</p>
     
     <ol>
-        <li>It doesn't perform any unnecessary steps.</li>
+        <li> The agent doesn't perform any unnecessary steps.</li>
         <li>It completes the task successfully.</li>
+        <li>The task given to it is feasible to be done with the context provided.</li>
     </ol>
+    <p>Often times, AI benchmarks don't check for one of the above. For exxample, <a href="https://arxiv.org/abs/2406.12045">tau-bench</a> doesn't check for the first, and <a href="https://openai.com/index/introducing-swe-bench-verified/">SWE-bench didn't check for the third.</a></p>
     
     <p>Of course, AI is definitely getting smarter - but just know, just because models increase in numbers out of the box doesn't mean there will be a lot of prompt tuning and scaffolding to get it to work for your usecase.</p>
 </main>
