@@ -1,153 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Yada Pruksachatkun - ML researcher and engineer known for SuperGLUE and responsible AI work. Currently leading ML at Moonhub, focusing on recruiting innovation.">
-    <meta name="keywords" content="Yada Pruksachatkun, ML researcher, machine learning engineer, SuperGLUE, responsible AI, Moonhub, healthcare AI">
-    <meta name="author" content="Yada Pruksachatkun">
-    
-    <!-- Open Graph tags for social media -->
-    <meta property="og:title" content="Yada Pruksachatkun - ML Researcher & Engineer">
-    <meta property="og:description" content="ML researcher and engineer known for SuperGLUE and responsible AI work. Currently leading ML at Moonhub.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yadapruks.xyz">
-    
-    <!-- Twitter Card tags -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:creator" content="@yadapruksachatk">
-    <meta name="twitter:title" content="Yada Pruksachatkun - ML Researcher & Engineer">
-    <meta name="twitter:description" content="ML researcher and engineer known for SuperGLUE and responsible AI work. Currently leading ML at Moonhub.">
-    
-    <title>Yada Pruksachatkun | ML Scientist & Engineer </title>
-    
-    <!-- Schema.org markup for Google -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Yada Pruksachatkun",
-      "jobTitle": "ML Researcher and Engineer",
-      "url": "https://yadapruks.xyz",
-      "sameAs": [
-        "https://twitter.com/yadapruksachatk",
-        "https://scholar.google.com/citations?user=j_cqbm4AAAAJ"
-      ]
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yada Pruksachatkun | ML Scientist & Engineer</title>
+  <meta name="description" content="Yada Pruksachatkun - ML researcher and engineer known for SuperGLUE and responsible AI work. Currently leading ML at Moonhub.">
+  <meta name="keywords" content="Yada Pruksachatkun, ML researcher, machine learning engineer, SuperGLUE, responsible AI, Moonhub, healthcare AI">
+  <meta name="author" content="Yada Pruksachatkun">
+  <meta property="og:title" content="Yada Pruksachatkun - ML Researcher & Engineer">
+  <meta property="og:description" content="ML researcher and engineer known for SuperGLUE and responsible AI work. Currently leading ML at Moonhub.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yadapruks.xyz">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@yadapruksachatk">
+  <meta name="twitter:title" content="Yada Pruksachatkun - ML Researcher & Engineer">
+  <meta name="twitter:description" content="ML researcher and engineer known for SuperGLUE and responsible AI work. Currently leading ML at Moonhub.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Yada Pruksachatkun",
+    "jobTitle": "ML Researcher and Engineer",
+    "url": "https://yadapruks.xyz",
+    "sameAs": [
+      "https://twitter.com/yadapruksachatk",
+      "https://scholar.google.com/citations?user=j_cqbm4AAAAJ"
+    ]
+  }
+  </script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    </script>
-    
-    <style>
-        /* Your existing styles remain the same */
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            text-align: center;
-        }
-        h1 {
-            font-size: 2em;
-        }
-        h2 {
-            font-size: 1.5em;
-            margin-top: 30px;
-        }
-        .content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: left;
-        }
-        a {
-            color: #007BFF;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        ul {
-            margin-top: 10px;
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-        img {
-            float: left;
-            padding-left: 20px;
-            width: 100px;
-            height: auto;
-        }
-    </style>
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f9ff;
+      overflow-x: hidden;
+    }
+
+    /* Canvas Header */
+    .canvas-header {
+      position: relative;
+      width: 100%;
+      height: 100px;
+      background-color: #f3f9ff;
+    }
+
+    #dotsCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      z-index: 0;
+    }
+
+    .canvas-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1rem;
+      color: rgba(26, 26, 26, 0.4);
+      letter-spacing: 0.2em;
+      z-index: 1;
+      text-align: center;
+    }
+
+    /* Content below header */
+    .content-section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    nav {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 15px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #007BFF;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-size: 2em;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #1a1a1a;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      margin-top: 30px;
+      color: #1a1a1a;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    a {
+      color: #007BFF;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .content-section {
+        padding: 2rem;
+      }
+
+      .canvas-overlay {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Header with canvas animation -->
+  <div class="canvas-header">
+    <canvas id="dotsCanvas"></canvas>
+  </div>
 
-<main class="content">
-    <header>
-        <h1>Yada Pruksachatkun</h1>
-    </header>
+  <!-- Main content -->
+  <div class="content-section">
+    <nav>
+      <a href="index.html">About</a>
+      <a href="https://www.notion.so/yadapruk/Yada-s-ML-Explanations-1f8571b8163480949959e8b6a849a046">Blog</a>
+    </nav>
+
+    <h1>Yada Pruksachatkun</h1>
 
     <section id="about">
-        <p>I am a ML researcher turned engineer. I'm most known for my work with 
+      <p>I am a ML scientist and engineer. I'm most known for my work with 
         <a href="https://venturebeat.com/ai/ai-researchers-launch-superglue-a-rigorous-benchmark-for-language-understanding/" target="_blank" rel="noopener">SuperGLUE</a> 
         and <a href="http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172349&copyownerid=90556" target="_blank" rel="noopener">responsible AI</a>, 
         although I've also played a major role in building systems that automate millions of calls in the healthcare space. I have dedicated my career to work that balances social impact, business viability, and technical innovation. These days, I lead ML at VC-backed (and Stanford AI lab spinout) 
-        <a href="https://www.notion.so/Yada-Pruksachatkun-374fc41df0ff44628f994bd16779b88e?pvs=21" target="_blank" rel="noopener">Moonhub</a>, 
+        <a href="https://moonhub.ai" target="_blank" rel="noopener">Moonhub</a>, 
         where I'm helping make the recruiting market less inefficient and painful to navigate.</p>
 
-        <p>I also angel invest and advise startups. Feel free to reach out if you're raising or looking for help on ML (people, technology, or strategy) for your company!</p>
+      <p>I also angel invest and advise startups. Feel free to reach out if you're raising or looking for help on ML (people, technology, or strategy) for your company!</p>
     </section>
 
     <section id="projects">
-        <h2>Some things I've built:</h2>
-        <ul>
-            <li>Built a ML platform that powers hundreds of thousands of healthcare calls to help people in the US get access to care faster and more affordably.</li>
-            <li>Worked on research projects around 
-                <a href="https://venturebeat.com/2021/01/06/ai-models-from-microsoft-and-google-already-surpass-human-performance-on-the-superglue-language-benchmark/" target="_blank" rel="noopener">benchmarking NLP models</a>, 
-                transfer learning, and 
-                <a href="https://scholar.google.com/citations?user=j_cqbm4AAAAJ&hl=en" target="_blank" rel="noopener">building trustworthy NLP</a>.
-            </li>
-            <li>Led the buildout of a 
-                <a href="https://www.youtube.com/watch?v=Wb7PDiKW4hc" target="_blank" rel="noopener">conversational search engine for candidates</a> 
-                (six months before LinkedIn released a 
-                <a href="https://www.linkedin.com/business/talent/blog/talent-acquisition/ways-to-use-new-ai-assisted-search-and-projects-in-linkedin-recruiter" target="_blank" rel="noopener">similar product</a>).
-            </li>
-            <li>Worked as a production assistant on an indie film set.</li>
-        </ul>
-    </section>
-
-    <section id="blog">
-        <h2>Blog posts and Online Content:</h2>
-        <ul>
-            <li><strong>[NEW]</strong> <a href="future-of-work.html">A letter to high school students to technology-proof your career</a></li>
-            <li><a href="https://towardsdatascience.com/how-to-debug-an-ml-model-a-step-by-step-case-study-in-nlp-d79d384f7427" target="_blank" rel="noopener">How to Debug a ML Model: A Case Study</a></li>
-            <li><a href="https://substack.com/@ahiddenlayer/p-148667244" target="_blank" rel="noopener">Practical Tips: Data Curation for ML Products</a></li>
-            <li><a href="https://www.youtube.com/watch?v=-Z6Ygh5zMvs" target="_blank" rel="noopener">Practical Tips and Tricks for Successful Transfer Learning</a></li>
-            <li><a href="https://www.amazon.com/Practicing-Trustworthy-Machine-Learning-Transparent/dp/1098120272" target="_blank" rel="noopener">Building Trustworthy ML Systems</a></li>
-            <li>Hopefully, I will have more arts-related content online soon!</li>
-        </ul>
-    </section>
-
-    <section id="interests">
-        <h2>What I'd Love to Talk About:</h2>
-        <ul>
-            <li>How to push humanity's pareto frontier</li>
-            <li>Funding models to do so (impact investing, etc).</li>
-            <li>Working with RFID readers for art projects.</li>
-        </ul>
-    </section>
-
-    <section id="links">
-        <h2>Some links:</h2>
-        <ul>
-            <li><a href="https://scholar.google.com/citations?user=j_cqbm4AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a></li>
-            <li><a href="https://www.notion.so/The-ML-Job-Search-Guide-bff08304464d4945b93ffcfe3915af5d?pvs=21" target="_blank" rel="noopener">The ML Job Search Guide</a></li>
-        </ul>
+      <h2>Some things I've built:</h2>
+      <ul>
+        <li>Built a ML platform that powers hundreds of thousands of healthcare calls to help people in the US get access to care faster and more affordably.</li>
+        <li>Worked on research projects around 
+            <a href="https://venturebeat.com/2021/01/06/ai-models-from-microsoft-and-google-already-surpass-human-performance-on-the-superglue-language-benchmark/" target="_blank" rel="noopener">benchmarking NLP models</a>, 
+            transfer learning, and 
+            <a href="https://scholar.google.com/citations?user=j_cqbm4AAAAJ&hl=en" target="_blank" rel="noopener">building trustworthy NLP</a>.
+        </li>
+        <li>Led the buildout of a 
+            <a href="https://www.youtube.com/watch?v=Wb7PDiKW4hc" target="_blank" rel="noopener">conversational search engine for candidates</a> 
+            (six months before LinkedIn released a 
+            <a href="https://www.linkedin.com/business/talent/blog/talent-acquisition/ways-to-use-new-ai-assisted-search-and-projects-in-linkedin-recruiter" target="_blank" rel="noopener">similar product</a>).
+        </li>
+        <li>Worked as a production assistant on an indie film set.</li>
+      </ul>
     </section>
 
     <footer>
-        <p>Feel free to get in touch at <a href="mailto:yada.pruksachatkun@gmail.com">yada.pruksachatkun@gmail.com</a>, or DM on 
+      <p>Feel free to get in touch at <a href="mailto:yada.pruksachatkun@gmail.com">yada.pruksachatkun@gmail.com</a>, or DM on 
         <a href="https://twitter.com/yadapruksachatk" target="_blank" rel="noopener">Twitter</a>!</p>
     </footer>
-</main>
+  </div>
 
+  <script>
+    const canvas = document.getElementById('dotsCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const spacing = 2;
+    let animationId;
+
+    function drawDots() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const rows = Math.ceil(canvas.height / spacing);
+      const cols = Math.ceil(canvas.width / spacing);
+      const time = Date.now() * 0.0015; // speed multiplier
+
+      for (let i = 0; i < rows; i++) {
+        for (let j = 0; j < cols; j++) {
+          const x = j * spacing;
+          const y = i * spacing;
+          const size = Math.sin((x + y) * 0.01 + time) * 1.5 + 2.5;
+          const opacity = 0.1 + (Math.sin(time + x * 0.01) + 1) * 0.1;
+          ctx.fillStyle = '#1a1a1a';
+          ctx.globalAlpha = opacity;
+          ctx.beginPath();
+          ctx.arc(x, y, size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      animationId = requestAnimationFrame(drawDots);
+    }
+
+    drawDots();
+
+    window.addEventListener('beforeunload', () => {
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+      }
+    });
+  </script>
 </body>
 </html>
