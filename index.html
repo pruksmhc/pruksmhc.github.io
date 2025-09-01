@@ -1,247 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yada Pruksachatkun | ML Scientist & Engineer</title>
-  <meta name="description" content="Yada Pruksachatkun - ML researcher and engineer known for SuperGLUE and responsible AI work. Currently leading ML at Moonhub.">
-  <meta name="keywords" content="Yada Pruksachatkun, ML researcher, machine learning engineer, SuperGLUE, responsible AI, Moonhub, healthcare AI">
-  <meta name="author" content="Yada Pruksachatkun">
-  <meta property="og:title" content="Yada Pruksachatkun - ML Researcher & Engineer">
-  <meta property="og:description" content="ML researcher and engineer known for SuperGLUE and responsible AI work. Currently leading ML at Moonhub.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yadapruks.xyz">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:creator" content="@yadapruksachatk">
-  <meta name="twitter:title" content="Yada Pruksachatkun - ML Researcher & Engineer">
-  <meta name="twitter:description" content="ML researcher and engineer known for SuperGLUE and responsible AI work. Currently leading ML at Moonhub.">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Yada Pruksachatkun",
-    "jobTitle": "ML Researcher and Engineer",
-    "url": "https://yadapruks.xyz",
-    "sameAs": [
-      "https://twitter.com/yadapruksachatk",
-      "https://scholar.google.com/citations?user=j_cqbm4AAAAJ"
-    ]
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yada - ML Scientist & Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        a:link {
+    color: rgb(95, 94, 94);
+    background-color: transparent;
+    text-decoration: none;
+    font-weight: bold;
   }
-  </script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f3f9ff;
-      overflow-x: hidden;
-    }
+  a:visited {
+    color: rgb(35, 35, 35);
+    background-color: transparent;
+    text-decoration: none;
+    font-weight: bold;
+  }
 
-    /* Canvas Header */
-    .canvas-header {
-      position: relative;
-      width: 100%;
-      height: 100px;
-      background-color: #f3f9ff;
-    }
 
-    #dotsCanvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-      z-index: 0;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background-color: #fdfdfd;
+            font-weight: 400;
+        }
 
-    .canvas-overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1rem;
-      color: rgba(26, 26, 26, 0.4);
-      letter-spacing: 0.2em;
-      z-index: 1;
-      text-align: center;
-    }
+        /* Fixed Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            background: rgba(253, 253, 253, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(44, 62, 80, 0.05);
+            z-index: 1000;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: flex-end;
+        }
 
-    /* Content below header */
-    .content-section {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 4rem 2rem;
-    }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
 
-    nav {
-      margin-bottom: 30px;
-      text-align: center;
-    }
+        .nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
 
-    nav a {
-      margin: 0 15px;
-      font-weight: bold;
-      text-decoration: none;
-      color: #007BFF;
-    }
+        .nav-links a:hover {
+            color: #3498db;
+        }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: #3498db;
+            transition: width 0.3s ease;
+        }
 
-    h1 {
-      font-size: 2em;
-      text-align: center;
-      margin-bottom: 2rem;
-      color: #1a1a1a;
-    }
+        .nav-links a:hover:after {
+            width: 100%;
+        }
 
-    h2 {
-      font-size: 1.5em;
-      margin-top: 30px;
-      color: #1a1a1a;
-    }
+        /* Main Content */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 40px 60px;
+        }
 
-    p {
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      color: #333;
-    }
+        .section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
 
-    ul {
-      margin-top: 10px;
-      padding-left: 20px;
-    }
+        .section:nth-child(1) { animation-delay: 0.2s; }
+        .section:nth-child(2) { animation-delay: 0.4s; }
+        .section:nth-child(3) { animation-delay: 0.6s; }
 
-    li {
-      margin-bottom: 10px;
-    }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    footer {
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #777;
-    }
+        /* Hero Section */
+        .hero {
+            text-align: left;
+            margin-bottom: 100px;
+        }
 
-    a {
-      color: #007BFF;
-    }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 500;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
 
-    a:hover {
-      text-decoration: underline;
-    }
+        .hero .subtitle {
+            font-size: 24px;
+            color: #7f8c8d;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
 
-    @media (max-width: 768px) {
-      .content-section {
-        padding: 2rem;
-      }
+        .hero .intro {
+            font-size: 18px;
+            color: #34495e;
+            font-weight: 400;
+        }
 
-      .canvas-overlay {
-        font-size: 0.8rem;
-      }
-    }
-  </style>
+        /* Story Section - Remove h2 styles since we're removing the header */
+        .journey h2 {
+            display: none;
+        }
+
+        .phase {
+            margin-bottom: 30px;
+            padding-left: 15px;
+            border-left: 3px solid #e8f5e8;
+            position: relative;
+        }
+
+        .phase h3 {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .phase p {
+            font-size: 15px;
+            color: #34495e;
+            margin-bottom: 8px;
+        }
+
+        .phase ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .phase li {
+            font-size: 15px;
+            color: #34495e;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 0;
+        }
+
+        /* Motivation Section */
+        .motivation h2 {
+            font-size: 32px;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .motivation p {
+            font-size: 18px;
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+
+        .intro .highlight {
+            background: linear-gradient(120deg, rgba(219, 159, 69, 0.1) 0%, rgba(255, 186, 101, 0.445) 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 100px 20px 40px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero .subtitle {
+                font-size: 20px;
+            }
+
+            .hero .intro {
+                font-size: 16px;
+            }
+
+            .journey h2,
+            .motivation h2 {
+                font-size: 28px;
+            }
+
+            .phase h3 {
+                font-size: 20px;
+            }
+
+            .motivation p {
+                font-size: 16px;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Selection */
+        ::selection {
+            background: rgba(52, 152, 219, 0.2);
+        }
+    </style>
 </head>
 <body>
-  <!-- Header with canvas animation -->
-  <div class="canvas-header">
-    <canvas id="dotsCanvas"></canvas>
-  </div>
-
-  <!-- Main content -->
-  <div class="content-section">
-    <nav>
-      <a href="index.html">About</a>
-      <a href="https://yadapruk.notion.site/Yada-s-ML-Explanations-1f8571b8163480949959e8b6a849a046?pvs=74">Technical Blog</a>
+    <!-- Fixed Navigation -->
+    <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="https://www.linkedin.com/in/yadapruksa" target="_blank">LinkedIn</a></li>
+            <li><a href="https://scholar.google.com/citations?user=j_cqbm4AAAAJ&hl=en" target="_blank">Google Scholar</a></li>
+            <li><a href="#writing">Writing</a></li>
+        </ul>
     </nav>
 
-    <h1>Yada Pruksachatkun</h1>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero section">
+            <h1>Yada Pruksachatkun</h1>
+            <p class="intro" style="margin-bottom: 15px;">
+                 I do research on multimodal reasoning and social intelligence. I'm most known for my work in transfer learning with <a href="">SuperGLUE</a>, as well as in research in <a href="">responsible AI</a>.
+            </p>
+            
+            <p class="intro"style="margin-bottom: 20px;">
+              I am endlessly fascinated by <span class="highlight">making models think the way humans do</span>. 
+              AI is increasingly being developed and used as copilots to people, as companions, as therapists, and as assistants to
+              experts. </p>
+              <p class="intro">Let's raise the bar for what interacting with AI should feel like.
+          </p>
+        </section>
 
-    <section id="about">
-      <p>I am a ML scientist and engineer. I'm most known for my work with 
-        <a href="https://venturebeat.com/ai/ai-researchers-launch-superglue-a-rigorous-benchmark-for-language-understanding/" target="_blank" rel="noopener">SuperGLUE</a> 
-        and <a href="http://www.wikicfp.com/cfp/servlet/event.showcfp?eventid=172349&copyownerid=90556" target="_blank" rel="noopener">responsible AI</a>, 
-        although I've also played a major role in building systems that automate millions of calls in the healthcare space. I have dedicated my career to work that balances social impact, business viability, and technical innovation. These days, I lead ML at VC-backed (and Stanford AI lab spinout) 
-        <a href="https://moonhub.ai" target="_blank" rel="noopener">Moonhub</a>, 
-        where I'm helping make the recruiting market less inefficient and painful to navigate.</p>
+        <!-- Story Section -->
+        <section class="journey section">
+            <p style="margin-bottom: 40px; color: #7f8c8d; font-size: 16px;">
+                Timeline:
+            </p>
 
-      <p>I also angel invest and advise startups. Feel free to reach out if you're raising or looking for help on ML (people, technology, or strategy) for your company!</p>
-    </section>
+            <div class="phase">
+                <h3>2018-2021: NLP Research</h3>
+                <ul>
+                    <li>After learning about machine learning during internships in college, I decided to try to understand these models more in depth. At the time, Natural Language Processing was really starting to taking off with this new architecture called Transformers. 
+                      My first research project was at Microsoft Research, where I investigated using <a href="https://www.microsoft.com/en-us/research/project/moments-of-change/groups/">ML to detect moments of change in mental health forums</a> with Amit Sharma.</li>
+                    <li>I then spent several wonderful years at NYU, where I was fortunate to be advised by Sam Bowman on transfer learning, including work with <a href="https://arxiv.org/abs/1905.00537">SuperGLUE</a> and transfer-learning toolkit jiant. 
+                      <li> After my masters, I worked at Amazon Alexa's responsible AI team (now Amazon Responsible AGI) as a scientist.  </li>
+                </ul>
+            </div>
 
-    <section id="projects">
-      <h2>Some things I've built:</h2>
-      <ul>
-        <li>Built a ML platform that powers hundreds of thousands of healthcare calls to help people in the US get access to care faster and more affordably.</li>
-        <li>Worked on research projects around 
-            <a href="https://venturebeat.com/2021/01/06/ai-models-from-microsoft-and-google-already-surpass-human-performance-on-the-superglue-language-benchmark/" target="_blank" rel="noopener">benchmarking NLP models</a>, 
-            transfer learning, and 
-            <a href="https://scholar.google.com/citations?user=j_cqbm4AAAAJ&hl=en" target="_blank" rel="noopener">building trustworthy NLP</a>.
-        </li>
-        <li>Led the buildout of a 
-            <a href="https://www.youtube.com/watch?v=Wb7PDiKW4hc" target="_blank" rel="noopener">conversational search engine for candidates</a> 
-            (six months before LinkedIn released a 
-            <a href="https://www.linkedin.com/business/talent/blog/talent-acquisition/ways-to-use-new-ai-assisted-search-and-projects-in-linkedin-recruiter" target="_blank" rel="noopener">similar product</a>).
-        </li>
-        <li>Worked as a production assistant on an indie film set.</li>
-      </ul>
-    </section>
+            <div class="phase">
+                <h3>2021-2025: Startups</h3>
+                <ul>
+                    <li>Itching to build for end customers, and having always wanted to work at startups, I took the plunge and learned how to build 0-to-1 for high stakes usecases, automating phone calls between payors and providers at <a href="http://infinitus.ai/">Infinitus</a> and building agents in recruiting at <a href="http://moonhub.ai/">Moonhub</a>.  These years were invaluable in learning what it takes to take new technology to market and change human workflows.</li>
+                    <li>Of course, I wasn't able to fully stay disconnected from research for long, so also contributed to <a href="https://huggingface.co/bigscience/bloom">BLOOM</a> and a couple other research projects throughout the years. I also had the opportunity to start the research internship program at Infinitus, where we did research on dialogue systems.</li>
+                </ul>
+            </div>
 
-    <footer>
-      <p>Feel free to get in touch at <a href="mailto:yada.pruksachatkun@gmail.com">yada.pruksachatkun@gmail.com</a>, or DM on 
-        <a href="https://twitter.com/yadapruksachatk" target="_blank" rel="noopener">Twitter</a>!</p>
-    </footer>
-  </div>
+            <div class="phase">
+                <h3>2025: Back to Research</h3>
+                <p>
+                    The ML world looks a lot different than in 2021. After acquisition of my last startup to Salesforce, 
+                    I'm currently at Salesforce Research's Interactive AI team, researching multimodal 
+                    reasoning and social intelligence/reasoning. 
+    
+                </p>
+                <p>
+                   Looking forward, I am excited to do good research and contribute to improving models for the forseeable future.
+                </p>
+            </div>
+        </section>
 
-  <script>
-    const canvas = document.getElementById('dotsCanvas');
-    const ctx = canvas.getContext('2d');
+        <!-- Motivation Section -->
+        <section class="motivation section">
+        
+            <p>
+                I have only been able to do the things I have done due to people taking a bet on me. If you are an underrepresented minority, or want to collaborate, feel free to book time <a href="https://calendly.com/yadapruk/60min?month=2025-09">here</a>. 
+            </p
+        </section>
+    </div>
 
-    function resizeCanvas() {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-    }
+    <script>
+        // Add smooth reveal animation for sections as they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
 
-    const spacing = 2;
-    let animationId;
+        // Observe all sections for animation
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
 
-    function drawDots() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      const rows = Math.ceil(canvas.height / spacing);
-      const cols = Math.ceil(canvas.width / spacing);
-      const time = Date.now() * 0.0015; // speed multiplier
-
-      for (let i = 0; i < rows; i++) {
-        for (let j = 0; j < cols; j++) {
-          const x = j * spacing;
-          const y = i * spacing;
-          const size = Math.sin((x + y) * 0.01 + time) * 1.5 + 2.5;
-          const opacity = 0.1 + (Math.sin(time + x * 0.01) + 1) * 0.1;
-          ctx.fillStyle = '#1a1a1a';
-          ctx.globalAlpha = opacity;
-          ctx.beginPath();
-          ctx.arc(x, y, size, 0, Math.PI * 2);
-          ctx.fill();
-        }
-      }
-
-      animationId = requestAnimationFrame(drawDots);
-    }
-
-    drawDots();
-
-    window.addEventListener('beforeunload', () => {
-      if (animationId) {
-        cancelAnimationFrame(animationId);
-      }
-    });
-  </script>
+        // Add subtle parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.2;
+            hero.style.transform = `translateY(${rate}px)`;
+        });
+    </script>
 </body>
 </html>
