@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/main.css">
+    <title>The Surprisingly Non-trivial Problem of Building Verifiable Evaluation Methods for Agent Simulations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #1a1a1a;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        ol, ul {
+            margin-bottom: 20px;
+            padding-left: 24px;
+        }
+        li {
+            margin-bottom: 12px;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        .tag {
+            display: inline-block;
+            font-size: 0.85rem;
+            color: #95a5a6;
+            margin-bottom: 20px;
+        }
+        .conclusion {
+            background-color: #f9f9f9;
+            border-left: 4px solid #ccc;
+            padding: 10px 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="writing.html">&larr; Back</a>
+    </header>
+    <main style="max-width: 800px; margin: 0 auto; padding: 0 15px;">
+        <h1>The Surprisingly Non-trivial Problem of Building Verifiable Evaluation Methods for Agent Simulations</h1>
+        <span class="tag">#shorts</span>
+
+        <p>Verifiable rewards can feel fairly easy. When you ask an agent to change something in a database, if it does so, it should be rewarded; if not, it should not. Verifiable outcomes seem simple, right? Having spent the past several months designing evaluation simulations, I can tell you: in practice, things get weird.</p>
+
+        <p>The core problem is that the same outcome can be completely valid or completely invalid depending on the trajectory. Take a flight-booking task. If the agent tells you it booked the flight, should it get credit? Not necessarily. The agent may have called the booking endpoint, received a 500 error, and then confidently reported success anyway. The surface-level outcome looks identical; the underlying reality is not. Verification has to take into account the entirety of the end state.</p>
+
+        <p>Here are the design principles I've been building into my evaluations:</p>
+
+        <ol>
+            <li>
+                <strong>Try to cast your evaluations in a verifiable way.</strong> While LLMs-as-a-judge may seem simple at first, you trade off simplicity for accuracy of your evaluation measure. This is especially true if you want your LLM to evaluate on a rating scale. Think hard about whether there's a way to grade in a verifiable manner before resorting to LLMs-as-a-judge.
+            </li>
+            <li>
+                <strong>Think in verifying trajectories, not just outcomes.</strong> In predictive ML, you have confusion matrices and false positive/negative breakdowns. In multi-step agentic ML, the equivalent is mapping the distinct states an agent can land in at each decision point, then labeling each state as SUCCESS or FAIL. Rather than asking "did it succeed?", you ask "which states did it visit, and how often?" — which gives you a much richer diagnostic picture.
+            </li>
+            <li>
+                <strong>Make your environment as clean as possible to isolate what you are measuring.</strong> If you're evaluating an agent's ability to execute on an ambiguous PRD, make sure any user simulators in the loop are well-behaved (within the constraints of what is realistic, of course). Noisy simulators introduce unnecessary complexity into the end-state space, and when it's time to assign credit, you'll struggle to tell whether a bad outcome reflects agent failure or environment noise.
+            </li>
+            <li>
+                <strong>Work backwards from the steel-thread outcome.</strong> Given the final artifact in isolation — a response, a database change, a produced file — ask yourself: are there paths that could produce this artifact through invalid means? If a technically correct-looking output could result from a shortcut, a hallucinated step, or an error that got swallowed, your verifiers need to account for it.
+            </li>
+        </ol>
+
+        <p>Aside from building agent evaluations from scratch, I've also had some learnings on adopting a new publicly released agent benchmark, given the amount of issues on current simulations (e.g. <a href="https://www.swebench.com/verified.html">SWE-Bench Verified</a>, <a href="https://taubench.com/blog/tau3-task-fixes.html">Tau3-bench corrections</a> for Tau2-bench).</p>
+
+            <ul>
+                <li>If all rollouts for a particular trajectory do not pass, especially for more than one ML system, then that task may be underspecified (e.g. impossible to do given the context available/reachable in the environment and task).</li>
+                <li>Github issues are always helpful. Look at them before starting to setup and reproduce the evaluation.</li>
+            </ul>
+        <p>Hope this is helpful, and I'm curious to trade notes if you've also been working with agent evaluations!</p>
+    </main>
+</body>
+</html>
